@@ -11,10 +11,10 @@ trait VecIntegral[T] extends Integral[T] {
 
 object VecIntegral {
   implicit object IntIsVecIntegral extends VecIntegral[Int] with Numeric.IntIsIntegral with Ordering.IntOrdering {
-    def sqrt(x: Int): Int = math.sqrt(x).toInt
+    def sqrt(x: Int): Int = math.sqrt(x).round.toInt
   }
   implicit object LongIsVecIntegral extends VecIntegral[Long] with Numeric.LongIsIntegral with Ordering.LongOrdering {
-    def sqrt(x: Long): Long = math.sqrt(x).toLong
+    def sqrt(x: Long): Long = math.sqrt(x).round
   }
   implicit object FloatIsVecIntegral extends VecIntegral[Float] with Numeric.FloatAsIfIntegral with Ordering.FloatOrdering {
     def sqrt(x: Float): Float = math.sqrt(x).toFloat

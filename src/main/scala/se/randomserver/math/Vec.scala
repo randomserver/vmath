@@ -1,6 +1,7 @@
 package se.randomserver.math
 import scala.language.higherKinds
 
+
 class DimensionError extends Error
 
 trait VecFactory[V[_]] {
@@ -24,8 +25,12 @@ abstract class Vec[T, V[T] <: Vec[T, V]](val elems: T*)(implicit num: VecIntegra
   def apply(n: Int): T = elems(n)
   def map[C](f: T => C)(implicit n: VecIntegral[C], fa: VecFactory[V]): V[C] = fa(elems.map(f):_*)
 
+  override def equals(that: Any): Boolean = that match {
+    case that: Vec[T,V] => elems.zip(that.elems).forall { case (a,b) => a == b }
+    case _ => false
+  }
   override def compare(that: V[T]): Int = (abs - that.abs).toInt
-  def ==(s: V[T]): Boolean = elems.zip(s.elems).forall { case (a,b) => a == b }
+
   override def toString: String = elems.mkString("[", ", ", "]")
 }
 

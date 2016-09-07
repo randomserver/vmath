@@ -2,8 +2,9 @@ package se.randomserver.math.test
 
 
 import se.randomserver.math.Vec3
-import se.randomserver.math.test.VecSuiteGenerators._
 
+import se.randomserver.math.test.VecSuiteGenerators._
+import se.randomserver.math.test.VecSuiteEqualities._
 /**
   * Created by patrik on 9/5/16.
   */
