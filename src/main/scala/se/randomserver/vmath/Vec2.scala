@@ -1,4 +1,4 @@
-package se.randomserver.math
+package se.randomserver.vmath
 
 /**
   * Created by patrik on 9/4/16.

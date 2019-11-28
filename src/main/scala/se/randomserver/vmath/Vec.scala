@@ -1,4 +1,4 @@
-package se.randomserver.math
+package se.randomserver.vmath
 import scala.language.higherKinds
 
 

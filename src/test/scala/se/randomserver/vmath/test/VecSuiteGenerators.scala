@@ -1,19 +1,16 @@
-package se.randomserver.math.test
+package se.randomserver.vmath.test
 
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalactic.Equality
 
 import scala.language.higherKinds
 import scala.language.existentials
-import se.randomserver.math.{Vec, Vec2, Vec3, VecIntegral}
+import se.randomserver.vmath.{Vec, Vec2, Vec3, VecIntegral}
 
 /**
   * Created by patrik on 9/5/16.
   */
 object VecSuiteGenerators {
-  import org.scalautils.TripleEquals._
-  import org.scalautils.Tolerance._
-
   implicit val arbDouble: Arbitrary[Double] = Arbitrary(Gen.choose[Double](-10d, 10d))
   implicit val arbFloat: Arbitrary[Float] = Arbitrary(Gen.choose[Float](-10f, 10f))
   implicit val arbLong: Arbitrary[Long] = Arbitrary(Gen.choose[Long](-10l, 10l))

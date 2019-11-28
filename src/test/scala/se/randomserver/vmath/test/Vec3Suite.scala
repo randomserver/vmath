@@ -1,10 +1,10 @@
-package se.randomserver.math.test
+package se.randomserver.vmath.test
 
 
-import se.randomserver.math.Vec3
+import se.randomserver.vmath.Vec3
 
-import se.randomserver.math.test.VecSuiteGenerators._
-import se.randomserver.math.test.VecSuiteEqualities._
+import se.randomserver.vmath.test.VecSuiteGenerators._
+import VecSuiteEqualities._
 /**
   * Created by patrik on 9/5/16.
   */

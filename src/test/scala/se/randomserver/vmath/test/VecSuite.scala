@@ -1,18 +1,19 @@
-package se.randomserver.math.test
+package se.randomserver.vmath.test
 
 import scala.language.higherKinds
 import org.scalacheck.Arbitrary
-import org.scalactic.Equality
+import org.scalactic.{Equality, TolerantNumerics}
 import org.scalatest._
 import prop._
-import se.randomserver.math.{Vec, Vec2, VecIntegral}
+import se.randomserver.vmath.{Vec, Vec2, VecIntegral}
 
 /**
   * Created by patrik on 9/4/16.
   */
-abstract class VecSuite[T: Arbitrary, V[T] <: Vec[T, V]](implicit genVec: Arbitrary[V[T]], eq: Equality[V[T]], num: VecIntegral[T])
+abstract class VecSuite[T: Arbitrary, V[T] <: Vec[T, V]](implicit genVec: Arbitrary[V[T]], vecEq: Equality[V[T]], eq: Equality[T], num: VecIntegral[T])
   extends PropSpec with PropertyChecks {
   import num._
+
 
   property("associative add") {
     forAll { (a: V[T], b: V[T]) =>
