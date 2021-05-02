@@ -4,9 +4,12 @@ on: [push]
 
 jobs:
   build:
-    matrix:
-      scala: [2.13.13, 2.13.5]
-      java: [adopt@1.8, adopt@1.11, adopt@1.15]
+    strategy:
+      matrix:
+        scala: [2.13.13, 2.13.5]
+        java: [adopt@1.8, adopt@1.11, adopt@1.15]
+
+
     runs-on: ubuntu-latest
 
     steps:
