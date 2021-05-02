@@ -10,6 +10,16 @@ ThisBuild / crossScalaVersions := supportedScalaVersions
 ThisBuild / organization := "se.randomserver"
 ThisBuild / git.useGitDescribe := true
 
+val oCreds = for {
+  username <- sys.env.get("GITHUB_USER")
+  password <- sys.env.get("GITHUB_TOKEN")
+} yield Credentials("Github Package Registry", "maven.pkg.github.com", "randomserver", password)
+
+oCreds match {
+  case Some(value) => credentials += value
+  case None => credentials ++= Seq.empty
+}
+
 scalacOptions += "-feature"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.14.1" % "test"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
