@@ -15,7 +15,7 @@ abstract class Vec[T, V[T] <: Vec[T, V]](val elems: T*)(implicit num: VecIntegra
   def +(v: V[T]): V[T] = factory(elems.zip(v.elems).map { case (a, b) => a + b }:_*)
   def -(v: V[T]): V[T] = this + (-v)
   def dot(v: V[T]): T = elems.zip(v.elems).map { case (a,b) => a * b }.sum
-  def unary_-(): V[T] = map(_.unary_-())
+  def unary_-(): V[T] = map(_.unary_-)
   def *(scalar: T): V[T] = map(_ * scalar)
   def abs: T = sqrt(elems.map(a => a * a).sum)
   def normalize(): V[T] = {
