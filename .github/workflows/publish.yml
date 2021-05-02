@@ -18,16 +18,11 @@ jobs:
       - name: Setup scala ${{ matrix.scala }}
         uses: olafurpg/setup-scala@v10
         with:
-          java-version: ${{ matrix.java }}
-
-      - uses: actions/setup-java@v2
-        with:
           java-version: adopt1.8
-
       - name: Cache sbt
         uses: actions/cache@v2
         with:
-          path: |
+          path:
             ~/.sbt
             ~/.ivy2/cache
             ~/.coursier/cache/v1
