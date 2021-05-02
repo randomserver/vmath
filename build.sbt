@@ -12,8 +12,8 @@ ThisBuild / git.useGitDescribe := true
 
 def publishConfig(): Seq[Def.Setting[_]] = sys.env.get("GITHUB_TOKEN").map[Seq[Def.Setting[_]]] { password =>
   Seq(
-    credentials += Credentials("Github Package Registry", "maven.pkg.github.com", "randomserver", password),
-    publishTo := Some("Github Package Registry" at "https://maven.pkg.github.com/randomserver/math")
+    credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "randomserver", password),
+    publishTo := Some("GitHub Package Registry" at "https://maven.pkg.github.com/randomserver/math")
   )
 }.getOrElse(Seq.empty[Def.Setting[_]])
 
